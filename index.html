@@ -1,0 +1,126 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+    <script>
+        function searchStudent() {
+            var studentId = document.getElementById("studentId").value;
+
+            // Create a new XMLHttpRequest object
+            var xhr = new XMLHttpRequest();
+
+            // Configure the request
+            xhr.open("GET", "search.php?studentId=" + studentId, true);
+
+            // Set up the callback function
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState == XMLHttpRequest.DONE && xhr.status == 200) {
+                    // Update the content of the sidebar with the response
+                    document.getElementById("sidebar").innerHTML = xhr.responseText;
+                }
+            };
+
+            // Send the request
+            xhr.send();
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="links.html">Useful Links</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>Team Information</h1>
+        <div id="studentSearch">
+            <label for="studentId">Enter Student ID:</label>
+            <input type="text" id="studentId" name="studentId">
+            <button onclick="searchStudent()">Search</button>
+        </div>
+        <div id="sidebar">
+         
+        </div>
+    </main>
+</body>
+</html> -->
+
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+   
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="links.html">Useful Links</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>Team Information</h1>
+        <div id="studentSearch">
+            <label for="studentId">Enter Student ID:</label>
+            <input type="text" id="studentId" name="studentId">
+            <button onclick="searchStudent()">Search</button>
+        </div>
+        <div id="sidebar">
+         <!-- Add this script inside the <head> tag -->
+            <script>
+                async function searchStudent() {
+                    const studentId = document.getElementById('studentId').value;
+            
+                    try {
+                        const response = await fetch(`http://localhost:3000/data?id=${studentId}`);
+                        // if (!response.ok) {
+                        //     document.getElementById('sidebar').innerHTML = `<p>Data for ID ${studentId} not found.</p>`
+                        // }
+                        const studentData = await response.json();
+                        console.log(studentData);
+            
+                        // Clear previous data
+                        const sidebar = document.getElementById('sidebar');
+                        sidebar.innerHTML = '';
+            
+                        if (response.ok && studentData) {
+                            // Display student information
+                            const studentInfoDiv = document.createElement('div');
+                            studentInfoDiv.innerHTML = `
+                                <h2>Student Information</h2>
+                                <p>Student ID: ${studentData.id}</p>
+                                <p>Name: ${studentData.name}</p>
+                                <p>Grade: ${studentData.grade}</p>
+                                <p>Grade: ${studentData.age}</p>
+                                <!-- Add more fields as needed -->
+                            `;
+                            sidebar.appendChild(studentInfoDiv);
+                        } else {
+                            // Display message for no data found
+                            sidebar.innerHTML = `<p>Data for ID ${studentId} not found.</p>`;
+                        }
+                    } catch (error) {
+                        document.getElementById('sidebar').innerHTML = `<p>Data for ID ${studentId} not found.</p>`;
+                    }
+                }
+            </script>
+            
+
+        </div>
+    </main>
+</body>
+</html> 
+ 

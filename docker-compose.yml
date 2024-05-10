@@ -1,0 +1,32 @@
+version: '3.9'
+
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile-frontend
+    ports:
+      - "8000:80"  
+
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile-backend
+    ports:
+      - "3308:3308"  
+    environment:
+      MYSQL_HOST: localhost
+      MYSQL_USER: root
+      MYSQL_PASSWORD: "5432"
+      MYSQL_DATABASE: CloudProject
+    depends_on:
+      - postgres
+
+  postgres:
+    image: postgres:latest  
+    ports:
+      - "5432:5432"  
+    environment:
+      POSTGRES_DB: CloudProject
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: "5432"

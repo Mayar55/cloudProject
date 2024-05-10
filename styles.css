@@ -1,0 +1,178 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1e1e1e;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+header {
+    background-color: #111;
+    padding: 20px 0;
+    text-align: center;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 20px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #ffa500;
+}
+
+main {
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+}
+
+#studentSearch {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#studentSearch label,
+#studentSearch input[type="text"],
+#studentSearch button {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    margin-right: 10px;
+    transition: all 0.3s ease;
+}
+
+#studentSearch label {
+    font-size: 18px;
+    color: #fff;
+}
+
+#studentSearch input[type="text"] {
+    width: 200px;
+    background-color: #333;
+    color: #fff;
+}
+
+#studentSearch input[type="text"]:focus {
+    outline: none;
+    box-shadow: 0 0 5px #ffa500;
+}
+
+#studentSearch button {
+    background-color: #ffa500;
+    color: #fff;
+    cursor: pointer;
+}
+
+#studentSearch button:hover {
+    background-color: #ff7f00;
+}
+
+#sidebar {
+    background-color: #333;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+#sidebar p {
+    font-size: 16px;
+}
+
+input[type="text"],
+button {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    margin-right: 10px;
+    transition: all 0.3s ease;
+}
+
+input[type="text"]:focus,
+button:hover {
+    box-shadow: 0 0 5px #ffa500;
+}
+
+@media screen and (max-width: 600px) {
+    nav ul li {
+        display: block;
+        margin: 10px 0;
+    }
+}
+
+.links-list {
+    list-style-type: none;
+    padding:0;
+}
+
+.links-list li {
+    margin: 10px 0;
+}
+
+.links-list li a {
+    color: #ddd;
+    text-decoration: none;
+    font-size: 18px;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.links-list li a:hover {
+    color: #ffa500;
+    transform: scale(1.1);
+}
+table.links-table {
+    width: 80%;
+    margin: 0 auto;
+    border-collapse: collapse;
+    background-color: #333;
+}
+
+table.links-table th,
+table.links-table td {
+    border: 1px solid #555;
+    padding: 15px;
+    text-align: left;
+    color: #ddd;
+}
+
+table.links-table th {
+    background-color: #222;
+}
+
+table.links-table tr:nth-child(even) {
+    background-color: #2a2a2a;
+}
+
+table.links-table a {
+    color: #ddd;
+    text-decoration: none;
+    font-size: 18px;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+table.links-table a:hover {
+    color: #ffa500;
+    transform: scale(1.1);
+}
+.links-table img {
+    width: 24px; /* Adjust the width as needed */
+    height: 24px; /* Adjust the height as needed */
+    vertical-align: middle; /* Align the images vertically within table cells */
+    margin-right: 5px; /* Add some spacing between the image and the text */
+}
